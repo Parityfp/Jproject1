@@ -59,7 +59,7 @@ public class main{
 }
 
 class FileReader { 
-    
+    private ArrayList<Hotel> H = new ArrayList<Hotel> ();
     private String path, filename;
     private Scanner keyboardScan;
     
@@ -75,7 +75,38 @@ class FileReader {
         boolean validinput = true;
         
            try{
-               
+               public void readLineHotel(String H)  {
+        
+        String type, name;
+        int rate;
+        boolean validinput = true;
+        
+           try{
+               String[] a = L.split(",");
+                type = a[0].trim();
+                name = a[1].trim();
+                rate = Integer.parseInt(a[2].trim());
+            try{
+            switch (yn){
+                case "yes" : break;
+                case "no"  : break;
+                default : throw new InvalidInputException(); 
+            }
+                    
+          
+            }catch(InvalidInputException e){
+                    System.out.println();
+                    System.out.println(e + ":  For Input: " + "\"" +a[3].trim() + "\"" );
+                    System.out.println(L);
+                    validinput = false ;
+            }
+            if(validinput)
+            {
+                if(type=="R"){
+                Hotel HO = new Hotel(type, name, rate);
+                H.add(HO);
+                } else Meal = new Meal()
+            }
            
             
            } catch (Exception e) {
@@ -99,5 +130,17 @@ class FileReader {
                System.out.println(B);
                //System.exit(0);
            }
+            
+    }
+           
+            
+           } catch (Exception e) {
+               System.out.println();
+               System.out.println(e);
+               System.out.println(H);
+               //System.exit(0);
+           }
+
+   
             
     }
