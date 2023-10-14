@@ -31,7 +31,7 @@ class Meal extends Hotel{
         this.rate = rate;
 
     }
-    public void printMeal() { System.out.printf("%-15s    rate = %,8.2f      rate++ = %,8.2f\n",name, rate, rate;} 
+    public void printMeal() { System.out.printf("%-15s    rate = %,8.2f      rate++ = %,8.2f\n",name, rate, rate);} 
 }
 
 class booking{
@@ -200,6 +200,7 @@ class FileReader {
         try( Scanner fileScan = new Scanner(new File(path+filename));)
         {
             fileopened = true; 
+            System.out.println("Read hotel data from "+path+filename);
             while (fileScan.hasNext()) {
              
                 readLine(fileScan.nextLine());
