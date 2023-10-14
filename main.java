@@ -185,8 +185,7 @@ class FileReader {
 
 
     }
-}           
-    
+
 public void openFileLoop() {
         boolean fileopened = false;
         while (!fileopened){
@@ -210,3 +209,8 @@ public void openFileLoop() {
             filename = keyboardScan.next();
             //System.exit(0);
         }
+        }
+        }
+}
+
+    
