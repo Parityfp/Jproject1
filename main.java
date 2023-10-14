@@ -58,7 +58,8 @@ class booking{
 public class main{
     public static void main(String[] args){
         //open hotel
-        String path = "src/main/Java/JProject/";
+        //string path is empty to work with codespace
+        String path = "";
         String file = "hotel.txt";
         FileReader H = new FileReader(path, file);
         H.openHotelLoop();
