@@ -77,14 +77,14 @@ class FileReader {
         keyboardScan = new Scanner(System.in);
     }
     
-    public void readLineHotel(String H)  {
+    public void readLineHotel(String L)  {
         String type, name;
         double rate;
         boolean validinput = true;
     
         
            try{
-               String[] a = H.split(",");
+               String[] a = L.split(",");
                 type = a[0].trim();
                 name = a[1].trim();
                 rate = Integer.parseInt(a[2].trim());
@@ -117,13 +117,13 @@ class FileReader {
            } catch (Exception e) {
                System.out.println();
                System.out.println(e);
-               System.out.println(H);
+               System.out.println(L);
                //System.exit(0);
            }
            
     }
 
-    public void readLineBooking(String B)  {
+    public void readLineBooking(String L)  {
         String name;
         int ID, nights;
         int [] t = new int[5];
@@ -131,7 +131,7 @@ class FileReader {
         
            try{
            
-            String[] a = B.split(",");
+            String[] a = L.split(",");
             ID = Integer.parseInt(a[0].trim());
             name = a[1].trim();
             nights = Integer.parseInt(a[2].trim());
@@ -176,7 +176,7 @@ class FileReader {
            } catch (Exception e) {
                System.out.println();
                System.out.println(e);
-               System.out.println(B);
+               System.out.println(L);
                //System.exit(0);
            }
             
