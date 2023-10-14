@@ -37,6 +37,12 @@ class booking{
 
     private int type[];
 
+    public Booking(int ID, String name, int nights, int type[]){
+        this.ID = ID;
+        this.name = name;
+        this.nights = nights;
+        this.type = type;
+    }
 }
 
 class customers extends booking{
