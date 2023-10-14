@@ -64,7 +64,7 @@ public class main{
         String path = "src/main/Java/JProject/";
         String file = "hotel.txt";
         FileReader H = new FileReader(path, file);
-        H.openFileLoop();
+        H.openHotelLoop();
         
     }
 }
@@ -194,7 +194,7 @@ class FileReader {
 
     }
 
-    public void openFileLoop() {
+    public void openHotelLoop() {
         boolean fileopened = false;
         while (!fileopened){
     
