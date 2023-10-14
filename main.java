@@ -170,7 +170,7 @@ class FileReader {
             */
             if(validinput)
             {
-            booking BO = new booking(ID, name, nights, t[]);
+            booking BO = new booking(ID, name, nights, t);
             B.add(BO);
             }
             
