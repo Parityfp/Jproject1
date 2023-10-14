@@ -61,6 +61,7 @@ public class main{
 
 class FileReader { 
     private ArrayList<Room> H = new ArrayList<Room> ();
+    private ArrayList<booking> B = new ArrayList<booking> ();
     private String path, filename;
     private Scanner keyboardScan;
     
@@ -83,7 +84,7 @@ class FileReader {
         boolean validinput = true;
         
            try{
-               String[] a = L.split(",");
+               String[] a = H.split(",");
                 type = a[0].trim();
                 name = a[1].trim();
                 rate = Integer.parseInt(a[2].trim());
@@ -98,7 +99,7 @@ class FileReader {
             }catch(InvalidInputException e){
                     System.out.println();
                     System.out.println(e + ":  For Input: " + "\"" +a[3].trim() + "\"" );
-                    System.out.println(L);
+                    System.out.println(H);
                     validinput = false ;
             }
             if(validinput)
@@ -125,11 +126,13 @@ class FileReader {
         
            try{
            
-            String[] a = L.split(",");
-            name = a[0].trim();
+            String[] a = B.split(",");
+            ID = Integer.parseInt(a[0].trim());
+            name = a[1].trim();
+            nights = Integer.parseInt(a[2].trim());
             
-            for(int i=0; i<2; i++) {
-                s[i] = Integer.parseInt(a[i+1].trim());
+            for(int i=0; i<5; i++) {
+                t[i] = Integer.parseInt(a[i+3].trim());
                 try{
                 if (s[i]<=0) throw new InvalidInputException(); 
                 }
@@ -137,7 +140,7 @@ class FileReader {
                     //a[i+1].trim();
                     System.out.println();
                     System.out.println(e + ":  For Input: " + "\"" +a[i+1].trim() + "\"" );
-                    System.out.println(L);
+                    System.out.println(B);
                     validinput = false ;
                 }
             }
