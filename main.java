@@ -18,7 +18,7 @@ class Room extends Hotel{
         super(type, name);
         this.rate = rate;
 
-    }
+    }                               
 }
 
 class Meal extends Hotel{
