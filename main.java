@@ -82,7 +82,9 @@ class FileReader {
                 type = a[0].trim();
                 name = a[1].trim();
                 rate = Integer.parseInt(a[2].trim());
+            /*
             try{
+
             switch (yn){
                 case "yes" : break;
                 case "no"  : break;
@@ -96,6 +98,7 @@ class FileReader {
                     System.out.println(H);
                     validinput = false ;
             }
+            */
             if(validinput)
             {
                 if(type=="R"){
@@ -140,7 +143,7 @@ class FileReader {
                     validinput = false ;
                 }
             }
-        
+        /*
             try{
             switch (yn){
                 case "yes" : break;
@@ -155,6 +158,7 @@ class FileReader {
                     System.out.println(L);
                     validinput = false ;
             }
+            */
             if(validinput)
             {
             booking BO = new booking(ID, name, nights, t[]);
@@ -170,7 +174,7 @@ class FileReader {
             
         }
 
- 
+
     }
             
     }
