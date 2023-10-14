@@ -68,6 +68,7 @@ public class main{
 class FileReader { 
     private ArrayList<Room> H = new ArrayList<Room> ();
     private ArrayList<booking> B = new ArrayList<booking> ();
+    private Meal M = new Meal("","",0);
     private String path, filename;
     private Scanner keyboardScan;
     
@@ -110,7 +111,7 @@ class FileReader {
                 if(type=="R"){
                 Room HO = new Room(type, name, rate);
                 H.add(HO);
-                } else Meal = new Meal(type, name, rate);
+                } else M = new Meal(type, name, rate);
             }
            
             
