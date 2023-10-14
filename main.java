@@ -45,6 +45,10 @@ class booking{
         this.nights = nights;
         this.type = type;
     }
+
+    public void Process(){
+
+    }
 }
 
 class customers extends booking{
