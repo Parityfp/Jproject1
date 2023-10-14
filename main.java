@@ -75,13 +75,7 @@ class FileReader {
         String type, name;
         double rate;
         boolean validinput = true;
-        
-           try{
-               public void readLineHotel(String H)  {
-        
-        String type, name;
-        int rate;
-        boolean validinput = true;
+    
         
            try{
                String[] a = H.split(",");
@@ -117,6 +111,8 @@ class FileReader {
                System.out.println(H);
                //System.exit(0);
            }
+           
+    }
 
     public void readLineBooking(String B)  {
         String name;
@@ -172,16 +168,9 @@ class FileReader {
                //System.exit(0);
            }
             
-    }
-           
-            
-           } catch (Exception e) {
-               System.out.println();
-               System.out.println(e);
-               System.out.println(H);
-               //System.exit(0);
-           }
+        }
 
-   
+ 
+    }
             
     }
