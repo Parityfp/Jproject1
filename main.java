@@ -35,14 +35,15 @@ class customers extends booking{
 
 public class main{
     public static void main(String[] args){
+            //read hotel
             String path = "src/main/Java/JProject/";
-            String file = "bookings.txt";
+            String file = "hotel.txt";
             FileReader N = new FileReader(path, file);
         
     }
 }
 
-class FileReader {
+class FileReader { 
     
     private String path, filename;
     private Scanner keyboardScan;
