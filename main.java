@@ -35,7 +35,8 @@ class customers extends booking{
 
 public class main{
     public static void main(String[] args){
-
+            String path = "src/main/Java/JProject/";
+            String file = "bookings.txt";
 
         
     }
