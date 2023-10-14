@@ -31,6 +31,7 @@ class Meal extends Hotel{
         this.rate = rate;
 
     }
+    public void printMeal() { System.out.printf("%-15s    rate = %,8.2f      rate++ = %,8.2f\n",name, rate, rate;} 
 }
 
 class booking{
@@ -41,7 +42,7 @@ class booking{
     //for the type of rooms, it will be an array of integers
     private int type[];
 
-    public Booking(int ID, String name, int nights, int type[]){
+    public booking(int ID, String name, int nights, int type[]){
         this.ID = ID;
         this.name = name;
         this.nights = nights;
@@ -193,7 +194,7 @@ class FileReader {
 
     }
 
-public void openFileLoop() {
+    public void openFileLoop() {
         boolean fileopened = false;
         while (!fileopened){
         try( Scanner fileScan = new Scanner(new File(path+filename));)
