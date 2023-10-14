@@ -54,7 +54,7 @@ class customers extends booking{
 public class main{
     public static void main(String[] args){
         //open hotel
-    String path = "src/main/Java/JProject/";
+        String path = "src/main/Java/JProject/";
         String file = "hotel.txt";
         FileReader H = new FileReader(path, file);
         
@@ -122,7 +122,7 @@ class FileReader {
     public void readLineBooking(String B)  {
         String name;
         int ID, nights;
-        int t = new int[5];
+        int [] t = new int[5];
         boolean validinput = true;
         
            try{
@@ -135,6 +135,7 @@ class FileReader {
             for(int i=0; i<5; i++) {
                 t[i] = Integer.parseInt(a[i+3].trim());
                 try{
+                /*
                 if (s[i]<=0) throw new InvalidInputException(); 
                 }
                 catch (InvalidInputException e) {
@@ -144,6 +145,7 @@ class FileReader {
                     System.out.println(B);
                     validinput = false ;
                 }
+                */
             }
         /*
             try{
