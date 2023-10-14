@@ -13,6 +13,7 @@ class Hotel{
 class Room extends Hotel{
     private double rate;
 
+
     public Room(String type, String name, double rate){
         super(type, name);
         this.rate = rate;
