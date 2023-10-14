@@ -31,7 +31,7 @@ class Meal extends Hotel{
         this.rate = rate;
 
     }
-    public void printMeal() { System.out.printf("%-15s    rate = %,8.2f      rate++ = %,8.2f\n",name, rate, rate);} 
+    public void printMeal() { System.out.printf("%-15s    rate = %,8.2f      rate++ = %,8.2f\n\n",name, rate, rate);} 
 }
 
 class booking{
@@ -63,6 +63,11 @@ public class main{
         String file = "hotel.txt";
         FileReader H = new FileReader(path, file);
         H.openHotelLoop();
+
+        file = "bookings.txt";
+        
+        FileReader B = new FileReader(path, file);
+        B.openBookingLoop();
         
     }
 }
@@ -218,6 +223,32 @@ class FileReader {
         }
         }
         }
+
+        public void openBookingLoop() {
+        boolean fileopened = false;
+        while (!fileopened){
+        try( Scanner fileScan = new Scanner(new File(path+filename));)
+        {
+            fileopened = true; 
+            System.out.println("Read booking data from "+path+filename+"\n");
+            while (fileScan.hasNext()) {
+             
+                readLineBooking(fileScan.nextLine());
+               
+                
+            }
+           
+            fileScan.close();
+        } catch (FileNotFoundException e){
+            System.out.println();
+            System.out.println(e);
+            System.out.println("New file name = ");
+            filename = keyboardScan.next();
+            //System.exit(0);
+        }
+        }
+        }
+
 }
 
     
