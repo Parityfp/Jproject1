@@ -200,7 +200,7 @@ class FileReader {
         try( Scanner fileScan = new Scanner(new File(path+filename));)
         {
             fileopened = true; 
-            System.out.println("Read hotel data from "+path+filename);
+            System.out.println("Read hotel data from "+path+filename+"\n");
             while (fileScan.hasNext()) {
              
                 readLine(fileScan.nextLine());
