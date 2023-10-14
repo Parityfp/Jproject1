@@ -187,3 +187,26 @@ class FileReader {
     }
 }           
     
+public void openFileLoop() {
+        boolean fileopened = false;
+        while (!fileopened){
+        try( Scanner fileScan = new Scanner(new File(path+filename));)
+        {
+            fileopened = true; 
+            fileScan.nextLine();
+            while (fileScan.hasNext()) {
+             
+                readLine(fileScan.nextLine());
+               
+                
+            }
+            
+            
+            fileScan.close();
+        } catch (FileNotFoundException e){
+            System.out.println();
+            System.out.println(e);
+            System.out.println("New file name = ");
+            filename = keyboardScan.next();
+            //System.exit(0);
+        }
