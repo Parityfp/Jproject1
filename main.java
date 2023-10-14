@@ -18,7 +18,9 @@ class Room extends Hotel{
         super(type, name);
         this.rate = rate;
 
-    }                               
+    }       
+    
+    public void printRoom() { System.out.printf("%-15s    rate = %,8.2f      rate++ = %,8.2f\n",name, rate, ((rate+(rate * 0.1))+((rate+(rate * 0.1))*0.07)));}                     
 }
 
 class Meal extends Hotel{
@@ -61,6 +63,7 @@ public class main{
         String path = "src/main/Java/JProject/";
         String file = "hotel.txt";
         FileReader H = new FileReader(path, file);
+        H.openFileLoop();
         
     }
 }
@@ -108,10 +111,14 @@ class FileReader {
             */
             if(validinput)
             {
-                if(type=="R"){
-                Room HO = new Room(type, name, rate);
-                H.add(HO);
-                } else M = new Meal(type, name, rate);
+                 switch (type){
+                    case "R": Room HO = new Room(type, name, rate);
+                                H.add(HO); break;
+                    case "M": M = new Meal(type, name, rate); break;
+                    default : break;
+               
+               }
+                      
             }
            
             
@@ -192,14 +199,13 @@ public void openFileLoop() {
         try( Scanner fileScan = new Scanner(new File(path+filename));)
         {
             fileopened = true; 
-            fileScan.nextLine();
             while (fileScan.hasNext()) {
              
                 readLine(fileScan.nextLine());
                
                 
             }
-            
+            for (Room r: H) r.printRoom();
             
             fileScan.close();
         } catch (FileNotFoundException e){
