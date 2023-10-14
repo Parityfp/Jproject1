@@ -204,7 +204,7 @@ class FileReader {
             System.out.println("Read data from "+path+filename+"\n");
             while (fileScan.hasNext()) {
              
-                readLine(fileScan.nextLine());
+                readLineHotel(fileScan.nextLine());
                
                 
             }
