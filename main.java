@@ -1,4 +1,4 @@
-package Jproject; import java.util.*;import java.io.*;
+package Jproject1; import java.util.*;import java.io.*;
 
 class Hotel{
     protected String type;
@@ -54,9 +54,6 @@ class booking{
     }
 }
 
-class customers extends booking{
-
-}
 
 public class main{
     public static void main(String[] args){
@@ -147,8 +144,8 @@ class FileReader {
             
             for(int i=0; i<5; i++) {
                 t[i] = Integer.parseInt(a[i+3].trim());
-                try{
-                /*
+                /*try{
+                
                 if (s[i]<=0) throw new InvalidInputException(); 
                 }
                 catch (InvalidInputException e) {
@@ -158,8 +155,8 @@ class FileReader {
                     System.out.println(B);
                     validinput = false ;
                 }
-                */
-            }
+                
+            }*/
         /*
             try{
             switch (yn){
@@ -182,7 +179,7 @@ class FileReader {
             B.add(BO);
             }
             
-           } catch (Exception e) {
+           }} catch (Exception e) {
                System.out.println();
                System.out.println(e);
                System.out.println(L);
@@ -192,7 +189,7 @@ class FileReader {
         }
 
 
-    }
+
 
     public void openHotelLoop() {
         boolean fileopened = false;
