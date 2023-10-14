@@ -139,13 +139,12 @@ class FileReader {
                 catch (InvalidInputException e) {
                     //a[i+1].trim();
                     System.out.println();
-                    System.out.println(e + ":  For Input: " + "\"" +a[i+1].trim() + "\"" );
+                    System.out.println(e + ":  For Input: " + "\"" +a[i+3].trim() + "\"" );
                     System.out.println(B);
                     validinput = false ;
                 }
             }
-            
-            yn = a[3].trim();
+        
             try{
             switch (yn){
                 case "yes" : break;
@@ -162,8 +161,8 @@ class FileReader {
             }
             if(validinput)
             {
-            Series SR = new Series(name, s[0], s[1], yn);
-            S.add(SR);
+            booking BO = new booking(ID, name, nights, t[]);
+            B.add(BO);
             }
             
            } catch (Exception e) {
