@@ -119,11 +119,49 @@ class FileReader {
 
     public void readLineBooking(String B)  {
         String name;
-        String yn;
+        int ID, nights;
+        int t = new int[5];
         boolean validinput = true;
         
            try{
            
+            String[] a = L.split(",");
+            name = a[0].trim();
+            
+            for(int i=0; i<2; i++) {
+                s[i] = Integer.parseInt(a[i+1].trim());
+                try{
+                if (s[i]<=0) throw new InvalidInputException(); 
+                }
+                catch (InvalidInputException e) {
+                    //a[i+1].trim();
+                    System.out.println();
+                    System.out.println(e + ":  For Input: " + "\"" +a[i+1].trim() + "\"" );
+                    System.out.println(L);
+                    validinput = false ;
+                }
+            }
+            
+            yn = a[3].trim();
+            try{
+            switch (yn){
+                case "yes" : break;
+                case "no"  : break;
+                default : throw new InvalidInputException(); 
+            }
+                    
+          
+            }catch(InvalidInputException e){
+                    System.out.println();
+                    System.out.println(e + ":  For Input: " + "\"" +a[3].trim() + "\"" );
+                    System.out.println(L);
+                    validinput = false ;
+            }
+            if(validinput)
+            {
+            Series SR = new Series(name, s[0], s[1], yn);
+            S.add(SR);
+            }
             
            } catch (Exception e) {
                System.out.println();
