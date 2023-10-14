@@ -68,7 +68,23 @@ class FileReader {
         keyboardScan = new Scanner(System.in);
     }
     
-    public void readLine(String L)  {
+    public void readLineHotel(String H)  {
+        String type, name;
+        double rate;
+        boolean validinput = true;
+        
+           try{
+               
+           
+            
+           } catch (Exception e) {
+               System.out.println();
+               System.out.println(e);
+               System.out.println(H);
+               //System.exit(0);
+           }
+
+    public void readLineBooking(String B)  {
         String name;
         String yn;
         boolean validinput = true;
@@ -79,7 +95,7 @@ class FileReader {
            } catch (Exception e) {
                System.out.println();
                System.out.println(e);
-               System.out.println(L);
+               System.out.println(B);
                //System.exit(0);
            }
             
