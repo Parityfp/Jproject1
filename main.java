@@ -35,6 +35,7 @@ class booking{
     private String name;
     private int nights;
 
+    //for the type of rooms, it will be an array of integers
     private int type[];
 
     public Booking(int ID, String name, int nights, int type[]){
