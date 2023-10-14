@@ -37,7 +37,35 @@ public class main{
     public static void main(String[] args){
             String path = "src/main/Java/JProject/";
             String file = "bookings.txt";
-
+            FileReader N = new FileReader(path, file);
         
     }
 }
+
+class FileReader {
+    
+    private String path, filename;
+    private Scanner keyboardScan;
+    
+    public FileReader(String P, String Fn){
+        path = P;
+        filename = Fn;
+        keyboardScan = new Scanner(System.in);
+    }
+    
+    public void readLine(String L)  {
+        String name;
+        String yn;
+        boolean validinput = true;
+        
+           try{
+           
+            
+           } catch (Exception e) {
+               System.out.println();
+               System.out.println(e);
+               System.out.println(L);
+               //System.exit(0);
+           }
+            
+    }
