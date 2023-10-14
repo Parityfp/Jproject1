@@ -197,10 +197,11 @@ class FileReader {
     public void openFileLoop() {
         boolean fileopened = false;
         while (!fileopened){
+    
         try( Scanner fileScan = new Scanner(new File(path+filename));)
         {
             fileopened = true; 
-            System.out.println("Read hotel data from "+path+filename+"\n");
+            System.out.println("Read data from "+path+filename+"\n");
             while (fileScan.hasNext()) {
              
                 readLine(fileScan.nextLine());
@@ -208,7 +209,7 @@ class FileReader {
                 
             }
             for (Room r: H) r.printRoom();
-            
+            M.printMeal();
             fileScan.close();
         } catch (FileNotFoundException e){
             System.out.println();
