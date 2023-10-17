@@ -187,8 +187,8 @@ class FileReader {
         int [] t = new int[5];
         boolean validinput = true;
         
-           try{
            
+           try{
             String[] a = L.split(",");
             ID = Integer.parseInt(a[0].trim());
             name = a[1].trim();
@@ -196,37 +196,13 @@ class FileReader {
             
             for(int i=0; i<5; i++) {
                 t[i] = Integer.parseInt(a[i+3].trim());
-                /*
-                try{
                 
-                if (s[i]<=0) throw new InvalidInputException(); 
-                }
-                catch (InvalidInputException e) {
-                    //a[i+1].trim();
-                    System.out.println();
-                    System.out.println(e + ":  For Input: " + "\"" +a[i+3].trim() + "\"" );
-                    System.out.println(B);
-                    validinput = false ;
-                }
-                */
+                
             }
-        /*
-            try{
-            switch (yn){
-                case "yes" : break;
-                case "no"  : break;
-                default : throw new InvalidInputException(); 
-            }
-                    
-          
-            }catch(InvalidInputException e){
-                    System.out.println();
-                    System.out.println(e + ":  For Input: " + "\"" +a[3].trim() + "\"" );
-                    System.out.println(L);
-                    validinput = false ;
-            }
-            */
-            if(validinput)
+           
+           
+            
+           if(validinput)
             {
             booking BO = new booking(ID, name, nights, t);
             B.add(BO);
@@ -237,13 +213,14 @@ class FileReader {
             //C.add(CO);
             
             }
-            
-           } catch (Exception e) {
+            }catch (Exception e) { 
+               validinput=false;
                System.out.println();
                System.out.println(e);
-               System.out.println(L);
-               //System.exit(0);
-           }
+               System.out.println("["+L+"] --> Skip this booking");
+               
+                }
+           
             
         }
     public void openHotelLoop() {
@@ -267,7 +244,7 @@ class FileReader {
         } catch (FileNotFoundException e){
             System.out.println();
             System.out.println(e);
-            System.out.println("New file name = ");
+            System.out.println("New file name for hotel data = ");
             filename = keyboardScan.next();
             //System.exit(0);
         }
@@ -279,6 +256,7 @@ class FileReader {
         boolean fileopened = false;
         int i = 0;
         filename = "bookings.txt";
+        filename = "bookings_errors.txt";
         while (!fileopened){
         try( Scanner fileScan = new Scanner(new File(path+filename));)
         {
@@ -295,7 +273,7 @@ class FileReader {
         } catch (FileNotFoundException e){
             System.out.println();
             System.out.println(e);
-            System.out.println("New file name = ");
+            System.out.println("New file name for booking data = ");
             filename = keyboardScan.next();
             //System.exit(0);
         }
@@ -309,7 +287,7 @@ class FileReader {
         for (booking n: B) 
             
            {//print first line //need to redo formating 
-            System.out.printf("Booking %3d, %10s, %3d nights   >> %15s (%3d) %15s (%3d) %15s (%3d) %15s (%3d) %15s (%3d) \n"
+            System.out.printf("Booking %3d, %10s, %3d nights   >> %-15s (%3d) %-15s (%3d) %-15s (%3d) %-15s (%3d) %-15s (%3d) \n"
                , n.getBID(),n.getBname(),n.getBnights(),H[0].getRname(),n.gettype(n.getarraytype(),0)
                ,H[1].getRname(),n.gettype(n.getarraytype(),1),H[2].getRname(),n.gettype(n.getarraytype(), 2)
                ,H[3].getRname(),n.gettype(n.getarraytype(), 3),M.getname(),n.gettype(n.getarraytype(), 4));
@@ -326,14 +304,14 @@ class FileReader {
             for(int i =0; i<100; i++){
             if(n.getBname().compareTo(C[i].getBname())==0) {
               
-                System.out.printf("Available cashback = %,5d >> total room price++ = %,10.2f   With service charge and VAT \n", C[i].getcashback(), ttroomprice );
+                System.out.printf("Available cashback = %-,5d            >> total room price++    = %,12.2f        With service charge and VAT \n", C[i].getcashback(), ttroomprice );
                 if(C[i].getcashback()>((ttroomprice+ttmealprice)/2)) {
                     cashback= cashback + C[i].getcashback()-((int)(ttroomprice+ttmealprice)/2);
                     C[i].setcashback((int)(ttroomprice+ttmealprice)/2);
                 }
-                System.out.printf(">> total meal price = %,10.2f \n",ttmealprice);
-                System.out.printf(">> total bill = %,10.2f redeem = %,5d\n",ttroomprice+ttmealprice,C[i].getcashback());
-                System.out.printf(">> Final bill = %,10.2f cashback for next booking = %,5d\n\n", ttroomprice+ttmealprice-C[i].getcashback(), cashback );
+                System.out.printf("%38s>> total meal price      = %,12.2f \n","",ttmealprice);
+                System.out.printf("%38s>> total bill            = %,12.2f        redeem = %,5d\n","",ttroomprice+ttmealprice,C[i].getcashback());
+                System.out.printf("%38s>> Final bill            = %,12.2f        cashback for next booking = %,5d\n\n","", ttroomprice+ttmealprice-C[i].getcashback(), cashback );
                 C[i].setcashback(cashback);
                 
               
@@ -342,10 +320,10 @@ class FileReader {
             //else if (Integer.parseInt(C[i].getBname().trim())==i) break; 
             else if(C[i].getBname().compareTo("a")==0)
             {
-                System.out.printf("Available cashback = %,5d >> total room price++ = %,10.2f   With service charge and VAT \n", 0, ttroomprice );
-                System.out.printf(">> total meal price = %,10.2f \n",ttmealprice);
-                System.out.printf(">> total bill = %,10.2f redeem = %,5d\n",ttroomprice+ttmealprice,0);
-                System.out.printf(">> Final bill = %,10.2f cashback for next booking = %,5d\n\n", ttroomprice+ttmealprice, cashback);
+                System.out.printf("Available cashback = %-,5d            >> total room price++    = %,12.2f        With service charge and VAT \n", 0, ttroomprice );
+                System.out.printf("%38s>> total meal price      = %,12.2f \n","",ttmealprice);
+                System.out.printf("%38s>> total bill            = %,12.2f        redeem = %,5d\n","",ttroomprice+ttmealprice,0);
+                System.out.printf("%38s>> Final bill            = %,12.2f        cashback for next booking = %,5d\n\n","", ttroomprice+ttmealprice, cashback);
                 C[j] = new customers(n.getBID(), n.getBname(), n.getBnights(), n.getarraytype() , cashback); j++;    
                 break;}
        
@@ -371,11 +349,11 @@ class FileReader {
             Arrays.sort(H);
            for(int i=0 ; i<4;i++)
        {
-            System.out.printf("%-20s total sales = %,6d rooms %,15.2f Baht\n", H[i].getRname(),H[i].getttsales(),H[i].getttearning());
+            System.out.printf("%-20s total sales      = %,6d rooms %,15.2f Baht\n", H[i].getRname(),H[i].getttsales(),H[i].getttearning());
        }
            System.out.println("");
            System.out.println("=== Meal Summary ===");
-           System.out.printf("%-20s total sales = %,6d heads %,15.2f Baht\n", M.getname(),M.getttsales(),M.getttearning());
+           System.out.printf("%-20s total sales      = %,6d heads %,15.2f Baht\n", M.getname(),M.getttsales(),M.getttearning());
             
        }
        
