@@ -1,4 +1,5 @@
-//Pranai Tisayatikom 6481101
+//Pranai Tisayatikom 6481101 , Chanakan Boonchoo 6580128
+
 package Project1_6481101; import java.util.*;import java.io.*;
 
  class Hotel {
@@ -12,14 +13,12 @@ package Project1_6481101; import java.util.*;import java.io.*;
    // public int compareTo(Hotel other){return 0;}
     }
 
-class Room extends Hotel implements Comparable<Room> {
-    private double rate;
-    private double rateVAT, ttearning;
-    private int ttsales=0;
+class Room extends Meal implements Comparable<Room> {
+        private double rateVAT;
+   
 
     public Room(String type, String name, double rate){
-        super(type, name);
-        this.rate = rate;
+        super(type, name,rate);
         rateVAT = (rate+(rate * 0.1))+((rate+(rate * 0.1))*0.07);
 
     }
@@ -32,19 +31,19 @@ class Room extends Hotel implements Comparable<Room> {
      else return 0;
     }
     public void printRoom() { System.out.printf("%-15s    rate = %,8.2f      rate++ = %,8.2f\n",name, rate, rateVAT);}
-    //public String getRtype() {return type;}
-    public String getRname () {return name;}
-    public double getRate() {return rate;}
+    //public String getRname () {return name;}
+    //public double getRate() {return rate;}
     public double getRateVAT() {return rateVAT;}
+    @Override
     public void countsales(int i,int j) { ttsales= ttsales+(i*j); ttearning = ttsales*rateVAT ;}
-    public int getttsales() {return ttsales;}
-    public double getttearning() {return ttearning;}
+   // public int getttsales() {return ttsales;}
+    //public double getttearning() {return ttearning;}
     
 }
 
 class Meal extends Hotel{
-    private double rate, ttearning;
-    private int ttsales=0;
+    double rate, ttearning;
+    int ttsales=0;
 
     public Meal(String type, String name, double rate){
         super(type, name);
@@ -210,8 +209,8 @@ class FileReader {
             }
            catch (InvalidInputException e){
                
-               System.out.println();
-               System.out.println(e);
+               //System.out.println();
+               //System.out.println();
                System.out.println("["+L+"] --> Skip this booking");
            
                 }
@@ -290,9 +289,9 @@ class FileReader {
             
            {//print first line //need to redo formating 
             System.out.printf("Booking %3d, %10s, %3d nights   >> %-15s (%3d) %-15s (%3d) %-15s (%3d) %-15s (%3d) %-15s (%3d) \n"
-               , n.getBID(),n.getBname(),n.getBnights(),H[0].getRname(),n.gettype(n.getarraytype(),0)
-               ,H[1].getRname(),n.gettype(n.getarraytype(),1),H[2].getRname(),n.gettype(n.getarraytype(), 2)
-               ,H[3].getRname(),n.gettype(n.getarraytype(), 3),M.getname(),n.gettype(n.getarraytype(), 4));
+               , n.getBID(),n.getBname(),n.getBnights(),H[0].getname(),n.gettype(n.getarraytype(),0)
+               ,H[1].getname(),n.gettype(n.getarraytype(),1),H[2].getname(),n.gettype(n.getarraytype(), 2)
+               ,H[3].getname(),n.gettype(n.getarraytype(), 3),M.getname(),n.gettype(n.getarraytype(), 4));
                 double ttroomprice = 0;
             for (int i=0; i<4 ;i++){
                 ttroomprice = ttroomprice + (n.getBnights()*n.gettype(n.getarraytype(), i)*H[i].getRateVAT());
@@ -351,7 +350,7 @@ class FileReader {
             Arrays.sort(H);
            for(int i=0 ; i<4;i++)
        {
-            System.out.printf("%-20s total sales      = %,6d rooms %,15.2f Baht\n", H[i].getRname(),H[i].getttsales(),H[i].getttearning());
+            System.out.printf("%-20s total sales      = %,6d rooms %,15.2f Baht\n", H[i].getname(),H[i].getttsales(),H[i].getttearning());
        }
            System.out.println("");
            System.out.println("=== Meal Summary ===");
@@ -369,7 +368,7 @@ class FileReader {
 
 class InvalidInputException extends Exception
 {			
-    public InvalidInputException(int i) {System.err.print("Error, Invalid input for input \""+i+"\"");}
+    public InvalidInputException(int i) {System.err.println("\nError, Invalid input for input \""+i+"\"");}
 };
 
     
