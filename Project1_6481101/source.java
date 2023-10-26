@@ -1,4 +1,4 @@
-//Pranai Tisayatikom 6481101 , Chanakan Boonchoo 6580128, Panya Mahasrisaengpetch 6481253
+//Pranai Tisayatikom 6481101 , Chanakan Boonchoo 6580128
 
 package Project1_6481101; import java.util.*;import java.io.*;
 
